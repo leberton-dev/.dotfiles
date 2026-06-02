@@ -7,7 +7,7 @@ return {
 			Lua = {
 				diagnostics = { globals = { "vim" } },
 				workspace = {
-					library = vim.api.nvim_get_runtime_file( "", true )
+					library = vim.api.nvim_get_runtime_file("", true)
 				},
 				completion = { callSnippet = "Replace" },
 				hint = { enable = true }
@@ -30,6 +30,22 @@ return {
 	},
 	["clangd"] = {
 		cmd = { "clangd" },
-		filetypes = { "c", "cpp" }
+		filetypes = { "c", "cpp" },
+		root_markers = { ".clang-format", ".git" }
+	},
+	["cssls"] = {
+		cmd = { "vscode-css-language-server", "--stdio" },
+		filetypes = { "css", "scss", "less" },
+		root_markers = { "package.json", ".git" }
+	},
+	["html"] = {
+		cmd = { "vscode-html-language-server", "--stdio" },
+		filetypes = { "html" },
+		root_markers = { "package.json", ".git" }
+	},
+	["ts_ls"] = {
+		cmd = { "typescript-language-server", "--stdio" },
+		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
 	}
 }
