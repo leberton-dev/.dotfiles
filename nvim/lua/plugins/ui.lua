@@ -40,11 +40,21 @@ local _which_key = function()
 	require( "which-key" ).setup()
 end
 
+-- dropbar (breadcrumbs)
+local _dropbar = function ()
+	vim.pack.add({
+		{ src = "https://github.com/Bekaboo/dropbar.nvim" }
+	})
+	require( "dropbar" ).setup()
+	vim.keymap.set( "n", "<leader>;", require( "dropbar.api" ).pick, { desc = "Dropbar pick" } )
+end
+
 M.setup = function ()
 	_color_schemes()
 	_themery()
 	_zen_mode()
 	_which_key()
+	_dropbar()
 end
 
 return M
