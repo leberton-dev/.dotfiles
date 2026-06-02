@@ -20,8 +20,11 @@ M.setup = function()
 	init_mason()
 	start_servers()
 
+	local fmt_group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = true })
+
 	vim.api.nvim_create_autocmd('LspAttach', {
 		callback = function(args)
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
 			vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
 			vim.keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", { buffer = args.buf })
 			vim.keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", { buffer = args.buf })
@@ -29,12 +32,16 @@ M.setup = function()
 			vim.keymap.set("n", "<leader>le", "<cmd>Telescope diagnostics<CR>", { buffer = args.buf })
 			vim.keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { buffer = args.buf })
 			vim.keymap.set("n", "<leader>lw", "<cmd>Telescope lsp_workspace_symbols<CR>", { buffer = args.buf })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = "*",
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end
-			})
+
+			if client and client:supports_method("textDocument/formatting") then
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = fmt_group,
+					buffer = args.buf,
+					callback = function()
+						vim.lsp.buf.format({ async = false, bufnr = args.buf })
+					end
+				})
+			end
 		end
 	})
 end
