@@ -47,5 +47,10 @@ return {
 		cmd = { "typescript-language-server", "--stdio" },
 		filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
+	},
+	["autotools_ls"] = {
+		cmd = { "autotools-language-server" },
+		filetypes = { "make" },
+		root_markers = { "Makefile" }
 	}
 }
