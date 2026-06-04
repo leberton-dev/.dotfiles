@@ -6,6 +6,7 @@
 	compression = 9
 	whitespace = error
 	preloadindex = true
+	pager = less
 
 [advice]
 	addEmptyPathspec = false
@@ -39,7 +40,7 @@
 	old = red
 
 [pager]
-	diff = diff-so-fancy | $PAGER
+	diff = diff-so-fancy | less --tabs=4 -RF
 
 [diff-so-fancy]
 	markEmptyLines = false
