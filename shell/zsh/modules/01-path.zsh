@@ -12,6 +12,7 @@ elif [[ $OS = "linux" ]]; then
 		export PATH="/opt/homebrew/bin:$PATH"
 	else
 		export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+		export PATH="/home/leberton/.cargo/bin:$PATH"
 	fi
 	if [[ $LINUX_DISTRO = "ubuntu" ]]; then
 		export PATH="/snap/bin:$PATH"
