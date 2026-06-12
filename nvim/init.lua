@@ -1,4 +1,6 @@
-require( "core" ).setup()
-require( "lsp" ).setup()
-require( "plugins" ).setup()
-require( "core" ).after()
+-- new
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+require("plugins").setup()
+require("lsp").setup()
