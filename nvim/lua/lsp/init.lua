@@ -15,6 +15,7 @@ local init_mason = function()
 			"html-lsp",
 			"typescript-language-server",
 			"autotools-language-server",
+			"bash-language-server",
 		},
 	})
 end
