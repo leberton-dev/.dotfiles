@@ -46,8 +46,9 @@ return {
 			"zig",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
-			callback = function(args)
-				pcall(vim.treesitter.start, args.buf)
+			pattern = { 'c', 'cpp', 'lua', 'python' },
+			callback = function()
+				vim.treesitter.start()
 			end,
 		})
 	end,

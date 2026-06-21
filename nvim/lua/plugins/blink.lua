@@ -1,5 +1,8 @@
 return {
 	src = "https://github.com/saghen/blink.cmp",
+	deps = {
+		{ src = "https://github.com/saghen/blink.lib" }
+	},
 	config = function()
 		require("blink.cmp").setup({
 			keymap = {
