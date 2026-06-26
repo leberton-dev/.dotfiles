@@ -11,7 +11,17 @@ return {
 				["<CR>"] = { "select_and_accept", "fallback" },
 			},
 			fuzzy = { implementation = "prefer_rust" },
-			sources = { default = { "lsp", "buffer", "path" } },
+			sources = {
+				default = { "lsp", "copilot", "buffer", "path" },
+				providers = {
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+						score_offset = 100,
+						async = true,
+					},
+				},
+			},
 			completion = {
 				menu = { border = "none" },
 				documentation = {
