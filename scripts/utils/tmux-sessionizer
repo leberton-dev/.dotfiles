@@ -5,7 +5,7 @@ DEV="$HOME/dev"
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$( (find $DEV/lab $DEV/42 $DEV/playground $HOME/.dotfiles \
+	selected=$( (find $DEV/lab $DEV/42 $DEV/playground $HOME/.dotfiles $DEV/tools \
 		-mindepth 1 -maxdepth 1 -type d) | fzf )
 fi
 
