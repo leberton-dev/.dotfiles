@@ -45,6 +45,9 @@ M.setup = function()
 				{ buffer = args.buf, desc = "Telescope lsp get references" })
 			vim.keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>",
 				{ buffer = args.buf, desc = "Telescope lsp definitions" })
+			vim.keymap.set("n", "<leader>lp", function()
+				require("goto-preview").goto_preview_definition()
+			end, { buffer = args.buf, desc = "Preview lsp definition (floating)" })
 			vim.keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>",
 				{ buffer = args.buf, desc = "Telescope lsp implementations" })
 			vim.keymap.set("n", "<leader>le", "<cmd>Telescope diagnostics<CR>",

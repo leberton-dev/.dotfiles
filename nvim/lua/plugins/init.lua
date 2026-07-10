@@ -15,6 +15,7 @@ M.setup = function()
 		require("plugins.themery"),
 		require("plugins.copilot"),
 		require("plugins.blink"),
+		require("plugins.goto_preview"),
 	})
 end
 
