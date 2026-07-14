@@ -28,3 +28,29 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.fn.winrestview(view)
 	end,
 })
+
+-- remap grep to silen grep!
+vim.cmd([[
+	cnoreabbrev <expr> grep getcmdtype() == ':' && getcmdline() =~# '^grep' ? "silent grep!" : "grep"
+]])
+
+-- open grep results in a new buffer full window
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+	group = augroup("grep_on_window"),
+	pattern = "grep",
+	callback = function()
+		vim.schedule(function()
+			vim.cmd("copen")
+			vim.cmd("only")
+		end)
+	end,
+})
+
+-- close quickfix after pressing enter ( when searching with grep )
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup("grep_close_quickfix"),
+	pattern = "qf",
+	callback = function(ev)
+		vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = ev.buf })
+	end,
+})
