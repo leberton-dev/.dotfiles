@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 	callback = function()
 		vim.schedule(function()
 			vim.cmd("copen")
-			vim.cmd("only")
+			-- vim.cmd("only")
 		end)
 	end,
 })
@@ -73,7 +73,8 @@ vim.api.nvim_create_user_command("Find", function(opts)
 		title = "Search Results",
 		items = items
 	})
-	vim.cmd("copen | only")
+	vim.cmd("copen")
+	-- vim.cmd("only")
 end, { nargs = 1, complete = "file" })
 
 -- create my own style for quickfixes
