@@ -64,7 +64,7 @@ vim.api.nvim_create_user_command("Find", function(opts)
 		print("Please provide a search term.")
 		return
 	end
-	local files = vim.fn.systemlist("rg --files | rg " .. vim.fn.shellescape(search_term))
+	local files = vim.fn.systemlist("rg --files | rg -i " .. vim.fn.shellescape(search_term))
 	local items = {}
 	for _, file in ipairs(files) do
 		items[#items + 1] = { filename = file }
