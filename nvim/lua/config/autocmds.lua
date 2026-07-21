@@ -108,3 +108,5 @@ function _G.my_own_quickfix(info)
 end
 
 vim.o.quickfixtextfunc = "v:lua.my_own_quickfix"
+vim.keymap.set("n", "<C-f>", ":Find ")
+vim.keymap.set("n", "<C-g>", ":grep ")
