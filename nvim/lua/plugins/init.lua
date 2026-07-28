@@ -6,7 +6,7 @@ M.setup = function()
 		require("plugins.telescope"),
 		require("plugins.oil"),
 		require("plugins.treesitter"),
-		require("plugins.markview"),
+		-- require("plugins.markview"),
 		require("plugins.autopairs"),
 		require("plugins.zen_mode"),
 		require("plugins.which_key"),
