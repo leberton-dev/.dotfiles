@@ -42,16 +42,10 @@ M.setup = function()
 				vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
 			end
 
-			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references,
-				{ buffer = args.buf, desc = "LSP references" })
 			vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition,
 				{ buffer = args.buf, desc = "LSP definition" })
-			vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation,
-				{ buffer = args.buf, desc = "LSP implementations" })
 			vim.keymap.set("n", "<leader>le", function() vim.diagnostic.setqflist() end,
 				{ buffer = args.buf, desc = "LSP diagnostics (quickfix)" })
-			vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol,
-				{ buffer = args.buf, desc = "LSP document symbols" })
 			vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol,
 				{ buffer = args.buf, desc = "LSP workspace symbols" })
 
