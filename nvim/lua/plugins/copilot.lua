@@ -4,7 +4,7 @@ return {
 		{ src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
 	},
 	config = function()
-		vim.api.nvim_create_user_command("ToggleCopilot", function()
+		vim.api.nvim_create_user_command("CopilotEnable", function()
 			if not require("copilot").setup_done then
 				require("copilot").setup({
 					suggestion = { enabled = false },
