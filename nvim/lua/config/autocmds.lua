@@ -30,10 +30,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- remap grep to silen grep!
--- remap find to Find
 vim.cmd([[
 	cnoreabbrev <expr> grep getcmdtype() == ':' && getcmdline() =~# '^grep' ? "silent grep!" : "grep"
-	cnoreabbrev <expr> find getcmdtype() == ':' && getcmdline() =~# '^find' ? "Find" : "find"
 ]])
 
 -- open grep results in a new buffer full window
@@ -56,26 +54,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = ev.buf })
 	end,
 })
-
--- search all files and open a quickfix window
-vim.api.nvim_create_user_command("Find", function(opts)
-	local search_term = opts.args
-	if search_term == "" then
-		print("Please provide a search term.")
-		return
-	end
-	local files = vim.fn.systemlist("rg --files | rg -i " .. vim.fn.shellescape(search_term))
-	local items = {}
-	for _, file in ipairs(files) do
-		items[#items + 1] = { filename = file }
-	end
-	vim.fn.setqflist({}, "r", {
-		title = "Search Results",
-		items = items
-	})
-	vim.cmd("copen")
-	-- vim.cmd("only")
-end, { nargs = 1, complete = "file" })
 
 -- create my own style for quickfixes
 function _G.my_own_quickfix(info)
@@ -108,5 +86,5 @@ function _G.my_own_quickfix(info)
 end
 
 vim.o.quickfixtextfunc = "v:lua.my_own_quickfix"
-vim.keymap.set("n", "<C-f>", ":Find ")
+vim.keymap.set("n", "<C-f>", ":find ")
 vim.keymap.set("n", "<C-g>", ":grep ")
