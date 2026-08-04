@@ -24,6 +24,9 @@ opt.undofile = true
 -- System
 opt.clipboard = "unnamedplus"
 
+-- Completion
+opt.completeopt = "menu,menuone,noselect,popup"
+
 -- Wildmode
 opt.wildmenu = true
 opt.wildoptions = "pum,fuzzy"

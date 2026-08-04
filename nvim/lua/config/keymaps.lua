@@ -15,9 +15,19 @@ end, { desc = "Re-open quicfix window" })
 map("n", "<C-b>", ":b", { desc = "Switch buffer (fuzzy)" })
 
 -- native LSP completion popup navigation (replaces blink.cmp's Tab/S-Tab/CR)
-map("i", "<Tab>", function() return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>" end,
-	{ expr = true, desc = "Next completion item" })
-map("i", "<S-Tab>", function() return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>" end,
-	{ expr = true, desc = "Previous completion item" })
+local function next_key()
+	if vim.fn.pumvisible() == 1 then return "<C-n>" end
+	if vim.snippet.active({ direction = 1 }) then return "<cmd>lua vim.snippet.jump(1)<CR>" end
+	return "<Tab>"
+end
+
+local function prev_key()
+	if vim.fn.pumvisible() == 1 then return "<C-p>" end
+	if vim.snippet.active({ direction = -1 }) then return "<cmd>lua vim.snippet.jump(-1)<CR>" end
+	return "<S-Tab>"
+end
+
+map("i", "<Tab>", next_key, { expr = true, desc = "Next completion item / snippet placeholder" })
+map("i", "<S-Tab>", prev_key, { expr = true, desc = "Previous completion item / snippet placeholder" })
 map("i", "<CR>", function() return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>" end,
 	{ expr = true, desc = "Accept completion item" })

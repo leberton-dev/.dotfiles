@@ -88,3 +88,4 @@ end
 vim.o.quickfixtextfunc = "v:lua.my_own_quickfix"
 vim.keymap.set("n", "<C-f>", ":find ")
 vim.keymap.set("n", "<C-g>", ":grep ")
+vim.keymap.set("n", "<C-s>", ':grep <C-r><C-w><CR>', { desc = "Grep word under cursor" })

@@ -46,9 +46,6 @@ M.setup = function()
 				{ buffer = args.buf, desc = "LSP references" })
 			vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition,
 				{ buffer = args.buf, desc = "LSP definition" })
-			vim.keymap.set("n", "<leader>lp", function()
-				require("goto-preview").goto_preview_definition()
-			end, { buffer = args.buf, desc = "Preview lsp definition (floating)" })
 			vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation,
 				{ buffer = args.buf, desc = "LSP implementations" })
 			vim.keymap.set("n", "<leader>le", function() vim.diagnostic.setqflist() end,
