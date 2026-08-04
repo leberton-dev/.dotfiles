@@ -21,10 +21,6 @@ local init_mason = function()
 end
 
 local start_servers = function()
-	vim.lsp.config("*", {
-		capabilities = require("blink.cmp").get_lsp_capabilities(),
-	})
-
 	for _, path in ipairs(vim.api.nvim_get_runtime_file("lua/lsp/servers/*.lua", true)) do
 		local name = vim.fn.fnamemodify(path, ":t:r")
 		vim.lsp.config(name, require("lsp.servers." .. name))
@@ -41,21 +37,26 @@ M.setup = function()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(args)
 			local client = vim.lsp.get_client_by_id(args.data.client_id)
-			vim.keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>",
-				{ buffer = args.buf, desc = "Telescope lsp get references" })
-			vim.keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>",
-				{ buffer = args.buf, desc = "Telescope lsp definitions" })
+
+			if client then
+				vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+			end
+
+			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references,
+				{ buffer = args.buf, desc = "LSP references" })
+			vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition,
+				{ buffer = args.buf, desc = "LSP definition" })
 			vim.keymap.set("n", "<leader>lp", function()
 				require("goto-preview").goto_preview_definition()
 			end, { buffer = args.buf, desc = "Preview lsp definition (floating)" })
-			vim.keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>",
-				{ buffer = args.buf, desc = "Telescope lsp implementations" })
-			vim.keymap.set("n", "<leader>le", "<cmd>Telescope diagnostics<CR>",
-				{ buffer = args.buf, desc = "Telescope diagnostics" })
-			vim.keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>",
-				{ buffer = args.buf, desc = "Telescope lsp document symbols" })
-			vim.keymap.set("n", "<leader>lw", "<cmd>Telescope lsp_workspace_symbols<CR>",
-				{ buffer = args.buf, desc = "Telescope lsp workspace symbols" })
+			vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation,
+				{ buffer = args.buf, desc = "LSP implementations" })
+			vim.keymap.set("n", "<leader>le", function() vim.diagnostic.setqflist() end,
+				{ buffer = args.buf, desc = "LSP diagnostics (quickfix)" })
+			vim.keymap.set("n", "<leader>ls", vim.lsp.buf.document_symbol,
+				{ buffer = args.buf, desc = "LSP document symbols" })
+			vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol,
+				{ buffer = args.buf, desc = "LSP workspace symbols" })
 
 			if client and client:supports_method("textDocument/formatting") then
 				vim.api.nvim_create_autocmd("BufWritePre", {

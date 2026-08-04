@@ -13,8 +13,6 @@ M.setup = function()
 		require("plugins.love2d"),
 		require("plugins.trouble"),
 		require("plugins.themery"),
-		require("plugins.copilot"),
-		require("plugins.blink"),
 		require("plugins.goto_preview"),
 	})
 end

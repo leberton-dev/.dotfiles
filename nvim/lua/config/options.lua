@@ -23,3 +23,9 @@ opt.undofile = true
 
 -- System
 opt.clipboard = "unnamedplus"
+
+-- Wildmode
+opt.wildmenu = true
+opt.wildoptions = "pum,fuzzy"
+opt.wildmode = "noselect:lastused,full"
+opt.path = vim.o.path .. ",**"
