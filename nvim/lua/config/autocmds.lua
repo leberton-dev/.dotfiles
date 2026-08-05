@@ -2,6 +2,20 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("config_" .. name, { clear = true })
 end
 
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = augroup("set_path"),
+	callback = function(ev)
+		if vim.bo[ev.buf].buftype ~= "" then
+			return
+		end
+		local root = vim.fs.root(ev.buf, ".git")
+		if root == nil then
+			return
+		end
+		vim.cmd.lcd(root)
+	end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = augroup("yank"),
 	callback = function()
@@ -29,16 +43,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
--- remap grep to silen grep!
+-- remap grep/make to silent grep!/make, so raw output doesn't hit "press ENTER"
 vim.cmd([[
 	cnoreabbrev <expr> grep getcmdtype() == ':' && getcmdline() =~# '^grep' ? "silent grep!" : "grep"
+	cnoreabbrev <expr> make getcmdtype() == ':' && getcmdline() =~# '^make' ? "silent make" : "make"
 ]])
 
--- open grep results in a new buffer full window
+-- open grep/make results in a new buffer full window (make only if there are errors)
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 	group = augroup("grep_on_window"),
-	pattern = "grep",
-	callback = function()
+	pattern = { "grep", "make" },
+	callback = function(ev)
+		if ev.match == "make" and #vim.fn.getqflist() == 0 then
+			return
+		end
 		vim.schedule(function()
 			vim.cmd("copen")
 			-- vim.cmd("only")
