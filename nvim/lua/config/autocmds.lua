@@ -46,17 +46,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- remap grep/make to silent grep!/make, so raw output doesn't hit "press ENTER"
 vim.cmd([[
 	cnoreabbrev <expr> grep getcmdtype() == ':' && getcmdline() =~# '^grep' ? "silent grep!" : "grep"
-	cnoreabbrev <expr> make getcmdtype() == ':' && getcmdline() =~# '^make' ? "silent make" : "make"
+	"cnoreabbrev <expr> make getcmdtype() == ':' && getcmdline() =~# '^make' ? "silent make" : "make"
 ]])
 
 -- open grep/make results in a new buffer full window (make only if there are errors)
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 	group = augroup("grep_on_window"),
-	pattern = { "grep", "make" },
+	pattern = { "grep" },
 	callback = function(ev)
-		if ev.match == "make" and #vim.fn.getqflist() == 0 then
-			return
-		end
+		-- if ev.match == "make" and #vim.fn.getqflist() == 0 then
+		-- 	return
+		-- end
 		vim.schedule(function()
 			vim.cmd("copen")
 			-- vim.cmd("only")
@@ -102,6 +102,18 @@ function _G.my_own_quickfix(info)
 	end
 	return lines
 end
+
+-- remap <CR> in quickfixes to open the quickfix entry in a split window
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function(event)
+		vim.keymap.set("n", "<CR>", function()
+			local idx = vim.fn.line(".")
+			vim.cmd("vert botright split")
+			vim.cmd(idx .. "cc")
+		end, { buffer = event.buf, desc = "Open quickfix entry in split" })
+	end,
+})
 
 vim.o.quickfixtextfunc = "v:lua.my_own_quickfix"
 vim.keymap.set("n", "<C-f>", ":find ")
