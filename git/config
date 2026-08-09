@@ -28,16 +28,10 @@
 	showUntrackedFiles = all
 
 [diff]
-	context = 3
-	renames = copies
-	interHunkContext = 10
+	tool = nvim_difftool
 
-[color "diff"]
-	meta = black bold
-	frag = magenta
-	context = white
-	whitespace = yellow reverse
-	old = red
+[difftool "nvim_difftool"]
+	cmd = nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
 
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RF
