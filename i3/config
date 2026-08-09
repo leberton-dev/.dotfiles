@@ -23,6 +23,9 @@ font pango:Iosevka 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
 
+# Remap Caps Lock to Ctrl
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -118,6 +121,21 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+set $monitor_left "DP-4"
+set $monitor_right "HDMI-0"
+
+#assign workspace to monitor
+workspace 1 output $monitor_left
+workspace 2 output $monitor_left
+workspace 3 output $monitor_right
+workspace 4 output $monitor_right
+workspace 5 output $monitor_left
+workspace 6 output $monitor_right
+workspace 7 output $monitor_left
+workspace 8 output $monitor_left
+workspace 9 output $monitor_right
+workspace 10 output $monitor_right
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
