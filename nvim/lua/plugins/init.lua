@@ -1,6 +1,7 @@
 local M = {}
 
 M.setup = function()
+	vim.cmd("packadd nvim.undotree")
 	require("loader").setup({
 		require("plugins.gitsigns"),
 		require("plugins.oil"),
