@@ -26,6 +26,7 @@ opt.clipboard = "unnamedplus"
 
 -- Completion
 opt.completeopt = "menu,menuone,noselect,popup"
+opt.autocomplete = true
 
 -- Wildmode
 opt.wildmenu = true
