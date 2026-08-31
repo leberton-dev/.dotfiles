@@ -24,7 +24,7 @@ vim.opt.colorcolumn = "80"			-- show a column at x position chars
 vim.opt.showmatch = true			-- highlights matching brackets
 vim.opt.cmdheight = 1				-- single line command line
 vim.opt.autocomplete = true			-- show a completion menu as you type
-vim.opt.completeopt = "fuzzy,menuone,noinsert,noselect" -- completion options
+vim.opt.completeopt = "fuzzy,nosort,menuone,noinsert,noselect" -- completion options
 vim.opt.complete:append('o')		-- add omni completion
 vim.opt.showmode = false			-- do not show the mode, instead have it in the statusline
 vim.opt.pumheight = 10				-- popup menu height
