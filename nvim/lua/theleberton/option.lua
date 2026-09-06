@@ -29,7 +29,9 @@ vim.opt.complete:append('o')		-- add omni completion
 vim.opt.showmode = false			-- do not show the mode, instead have it in the statusline
 vim.opt.pumheight = 10				-- popup menu height
 vim.opt.pumblend = 10				-- popup menu transparency
+vim.opt.pumborder = "rounded"		-- popup border style
 vim.opt.winblend = 0				-- floating window transparency
+vim.opt.winborder = "rounded"		-- flating window style
 vim.opt.conceallevel = 0			-- do not hide markup
 vim.opt.concealcursor = ""			-- do not hide cursorline in markup
 
