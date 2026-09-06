@@ -15,3 +15,6 @@ vim.keymap.set('n', '<C-s>', function()
 	local word = vim.fn.expand('<cword>')
 	vim.cmd('grep! -w ' .. vim.fn.shellescape(word))
 end, { desc = 'Grep under cursor' })
+
+
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format(), { desc = 'Format current file' })
