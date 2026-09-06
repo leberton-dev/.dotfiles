@@ -17,4 +17,4 @@ vim.keymap.set('n', '<C-s>', function()
 end, { desc = 'Grep under cursor' })
 
 
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format(), { desc = 'Format current file' })
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format current file' })
