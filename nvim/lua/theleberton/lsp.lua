@@ -14,7 +14,7 @@ vim.lsp.config('basedpyright', {
 	root_markers = { { '.git' }, { 'pyrightconfig.json', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile' } }
 })
 
-vim.lsp.enable({ 'clangd', 'lua_ls', 'basedpyright', 'ruff' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'basedpyright', 'ruff', 'rust_analyzer' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
