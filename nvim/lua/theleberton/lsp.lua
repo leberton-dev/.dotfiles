@@ -1,15 +1,3 @@
--- vim.lsp.config('clangd', {
--- 	cmd = 'clangd',
--- 	filetypes = { 'c' },
--- 	root_markers = { '.clangd', 'compile_commands.json', '.git' }
--- })
---
--- vim.lsp.config('lua_ls', {
--- 	cmd = 'lua-language-server',
--- 	filetypes = { 'lua' },
--- 	root_markers = { '.luarc.json', '.git' }
--- })
-
 vim.lsp.config('basedpyright', {
 	root_markers = { { '.git' }, { 'pyrightconfig.json', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile' } }
 })
