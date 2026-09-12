@@ -4,6 +4,7 @@ vim.pack.add({
 	{ src = 'https://github.com/stevearc/oil.nvim' },
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = 'https://github.com/folke/which-key.nvim' },
+	{ src = 'https://github.com/pablopunk/todo.nvim' },
 
 	-- Telescope
 	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -17,6 +18,7 @@ vim.cmd 'colorscheme tokyonight'
 
 require('oil').setup()
 require('which-key').setup()
+require('todo').setup()
 
 local themes = require('telescope.themes')
 require('telescope').setup({
