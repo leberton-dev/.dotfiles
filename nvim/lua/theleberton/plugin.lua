@@ -1,5 +1,6 @@
 vim.pack.add({
 	{ src = 'https://github.com/rose-pine/neovim' },
+	{ src = 'https://github.com/folke/tokyonight.nvim' },
 	{ src = 'https://github.com/stevearc/oil.nvim' },
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = 'https://github.com/folke/which-key.nvim' },
@@ -12,7 +13,7 @@ vim.pack.add({
 
 vim.cmd 'packadd nvim.undotree'
 
-vim.cmd 'colorscheme rose-pine'
+vim.cmd 'colorscheme tokyonight'
 
 require('oil').setup()
 require('which-key').setup()
