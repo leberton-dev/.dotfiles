@@ -26,3 +26,10 @@ require('telescope').setup({
 			layout_config = { height = 0.3 },
 	}),
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'TelescopePrompt',
+	callback = function()
+		vim.opt_local.autocomplete = false
+	end,
+})
