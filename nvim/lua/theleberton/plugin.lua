@@ -13,6 +13,9 @@ vim.pack.add({
 
 	-- Harpoon
 	{ src = 'https://github.com/theprimeagen/harpoon' },
+
+	-- Git
+	{ src = 'git@github.com:lewis6991/gitsigns.nvim.git' },
 })
 
 vim.cmd 'packadd nvim.undotree'
