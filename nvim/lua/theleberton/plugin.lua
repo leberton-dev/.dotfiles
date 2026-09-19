@@ -10,6 +10,9 @@ vim.pack.add({
 	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
 	{ src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' },
 	{ src = 'https://github.com/nvim-telescope/telescope.nvim' },
+
+	-- Harpoon
+	{ src = 'https://github.com/theprimeagen/harpoon' },
 })
 
 vim.cmd 'packadd nvim.undotree'
@@ -23,7 +26,7 @@ require('todo').setup()
 local themes = require('telescope.themes')
 require('telescope').setup({
 	defaults = themes.get_ivy({
-			layout_config = { height = 0.3 },
+		layout_config = { height = 0.3 },
 	}),
 })
 
