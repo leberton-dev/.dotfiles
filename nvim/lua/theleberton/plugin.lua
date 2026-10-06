@@ -16,6 +16,9 @@ vim.pack.add({
 
 	-- Git
 	{ src = 'git@github.com:lewis6991/gitsigns.nvim.git' },
+
+	-- Markdown view
+	{ src = 'https://github.com/OXY2DEV/markview.nvim' },
 })
 
 vim.cmd 'packadd nvim.undotree'
