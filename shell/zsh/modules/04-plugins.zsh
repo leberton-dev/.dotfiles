@@ -42,8 +42,8 @@ load_plugin() {
 }
 
 load_plugin "zsh-syntax-highlighting" "zsh-syntax-highlighting.zsh"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 load_plugin "zsh-autosuggestions" "zsh-autosuggestions.zsh"
-load_plugin "zsh-history-substring-search" "zsh-history-substring-search.zsh"
 
 unset BREW_PREFIX
 unfunction load_plugin
