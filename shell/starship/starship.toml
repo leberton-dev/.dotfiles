@@ -11,6 +11,7 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$line_break\
 $character\
 """
 
@@ -59,4 +60,4 @@ style = 'bold white'
 format = '[$all_status$ahead_behind]($style)\]'
 
 [character]
-format = " > "
+format = "> "
