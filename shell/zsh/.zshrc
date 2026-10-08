@@ -21,12 +21,4 @@ eval "$(pyenv init - zsh)"
 source $HOME/.brewconfig.zsh
 
 # mya: lock the terminal while a task is overdue
-if [[ -o interactive ]] && (( $+commands[mya] )); then
-	trap '' INT
-	while mya task check; (( $? == 3 )); do
-		print "terminal locked: only mya commands allowed (e.g. 'done poubelles'), Ctrl+D to quit"
-		read -r "line?mya task> " || exit
-		mya task ${(Q)${(z)line}}
-	done
-	trap - INT
-fi
+eval "$(mya init zsh)"
