@@ -16,6 +16,7 @@ $character\
 
 [time]
 disabled = false
+time_format = '%H:%M'
 style = 'dimmed white'
 format = '[\[ $time \]]($style)'
 
