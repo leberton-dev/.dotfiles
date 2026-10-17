@@ -1,0 +1,76 @@
+[modules.git]
+packages = ["git"]
+
+[[modules.git.links]]
+source = "git/config"
+dest = "~/.gitconfig"
+
+[[modules.git.links]]
+source = "git/ignore"
+dest = "~/.config/git/ignore"
+
+[[modules.git.links]]
+source = "git/.gitmessage.txt"
+dest = "~/.gitmessage.txt"
+
+[modules.zsh]
+packages = ["zsh", "starship"]
+
+[[modules.zsh.links]]
+source = "shell/zsh/.zshrc"
+dest = "~/.zshrc"
+
+[[modules.zsh.links]]
+source = "shell/zsh/.zprofile"
+dest = "~/.zprofile"
+
+[[modules.zsh.links]]
+source = "shell/starship/starship.toml"
+dest = "~/.config/starship/starship.toml"
+
+[modules.i3]
+packages = ["i3"]
+
+[[modules.i3.links]]
+source = "i3/"
+dest = "~/.config/i3/"
+
+[modules.nvim]
+packages = ["neovim"]
+
+[[modules.nvim.links]]
+source = "nvim/"
+dest = "~/.config/nvim/"
+
+[modules.scripts]
+packages = []
+
+[[modules.scripts.links]]
+source = "scripts/utils/tmux-sessionizer"
+dest = "~/.local/bin/tmux-sessionizer"
+
+[modules.tmux]
+packages = ["tmux"]
+
+[[modules.tmux.links]]
+source = "terminal/tmux/.tmux.conf"
+dest = "~/.tmux.conf"
+
+[modules.kitty]
+packages = ["kitty"]
+
+[[modules.kitty.links]]
+source = "terminal/kitty/kitty.conf"
+dest = "~/.config/kitty/kitty.conf"
+
+[profiles.fourtytwo]
+modules = ["zsh", "git", "nvim", "scripts", "tmux"]
+package_manager = "brew"
+
+[profiles.asahi]
+modules = ["zsh", "git", "i3", "nvim", "scripts", "tmux", "kitty"]
+package_manager = "dnf"
+
+[profiles.ubuntu]
+modules = ["zsh", "git", "nvim", "scripts", "tmux"]
+package_manager = "apt"
