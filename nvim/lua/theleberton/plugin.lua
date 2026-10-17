@@ -1,6 +1,7 @@
 vim.pack.add({
 	{ src = 'https://github.com/rose-pine/neovim' },
 	{ src = 'https://github.com/folke/tokyonight.nvim' },
+	{ src = 'https://github.com/jacoborus/tender.vim' },
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = 'https://github.com/folke/which-key.nvim' },
 	{ src = 'https://github.com/pablopunk/todo.nvim' },
@@ -26,7 +27,7 @@ vim.pack.add({
 
 vim.cmd 'packadd nvim.undotree'
 
-vim.cmd 'colorscheme tokyonight'
+vim.cmd 'colorscheme tender'
 
 require('oil').setup({
 	win_options = {
