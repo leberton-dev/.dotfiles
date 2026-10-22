@@ -2,13 +2,24 @@ vim.pack.add({
 	{ src = 'https://github.com/rose-pine/neovim' },
 	{ src = 'https://github.com/folke/tokyonight.nvim' },
 	{ src = 'https://github.com/jacoborus/tender.vim' },
+	{ src = 'https://github.com/webhooked/kanso.nvim' },
+
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = 'https://github.com/folke/which-key.nvim' },
 	{ src = 'https://github.com/pablopunk/todo.nvim' },
 
+	-- blink cmp
+	{
+		src = 'https://github.com/saghen/blink.cmp',
+		version = vim.version.range('1.*')
+	},
+
+	-- TreeSitter
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+
 	-- Oil
 	{ src = 'https://github.com/stevearc/oil.nvim' },
-	{ src = 'https://github.com/refractalize/oil-git-status.nvim', config=true },
+	{ src = 'https://github.com/refractalize/oil-git-status.nvim',        config = true },
 
 	-- Telescope
 	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -23,11 +34,27 @@ vim.pack.add({
 
 	-- Markdown view
 	{ src = 'https://github.com/OXY2DEV/markview.nvim' },
+
+	-- hlslens ( better glance at matched informations )
+	{ src = 'https://github.com/kevinhwang91/nvim-hlslens' },
+
+	-- autopairs
+	{ src = 'https://github.com/windwp/nvim-autopairs' },
+
+	-- tabout (tabout from parentheses, quotes, and similar context)
+	{ src = 'https://github.com/abecodes/tabout.nvim' },
+
+	-- UI
+	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
+	{ src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
+	{ src = 'https://github.com/karb94/neoscroll.nvim' },
+	{ src = 'https://github.com/sphamba/smear-cursor.nvim' },
 })
 
 vim.cmd 'packadd nvim.undotree'
 
-vim.cmd 'colorscheme tender'
+vim.cmd 'colorscheme kanso-zen'
 
 require('oil').setup({
 	win_options = {
@@ -39,16 +66,6 @@ require('oil-git-status').setup()
 require('which-key').setup()
 require('todo').setup()
 
-local themes = require('telescope.themes')
-require('telescope').setup({
-	defaults = themes.get_ivy({
-		layout_config = { height = 0.3 },
-	}),
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = 'TelescopePrompt',
-	callback = function()
-		vim.opt_local.autocomplete = false
-	end,
-})
+require('nvim-autopairs').setup()
+require('hlslens').setup()
+require('tabout').setup()

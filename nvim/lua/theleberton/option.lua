@@ -23,9 +23,9 @@ vim.opt.signcolumn = "yes"			-- always show a sign column
 vim.opt.colorcolumn = "80"			-- show a column at x position chars
 vim.opt.showmatch = true			-- highlights matching brackets
 vim.opt.cmdheight = 1				-- single line command line
-vim.opt.autocomplete = true			-- show a completion menu as you type
-vim.opt.completeopt = "fuzzy,nosort,menuone,noinsert,noselect" -- completion options
-vim.opt.complete:append('o')		-- add omni completion
+-- vim.opt.autocomplete = false		-- show a completion menu as you type
+-- vim.opt.completeopt = "fuzzy,menuone,noinsert,noselect,popup" -- completion options
+-- vim.opt.complete:append('o')		-- add omni completion
 vim.opt.showmode = false			-- do not show the mode, instead have it in the statusline
 vim.opt.pumheight = 10				-- popup menu height
 vim.opt.pumblend = 10				-- popup menu transparency
@@ -47,9 +47,14 @@ vim.opt.undofile = true				-- do create an undofile
 
 require("vim._core.ui2").enable({})
 
-vim.diagnostic.config({ virtual_text = true })
 
 vim.opt.grepprg = 'rg --vimgrep --smart-case'
 vim.opt.grepformat = '%f:%l:%c:%m'
 vim.opt.clipboard = 'unnamedplus'
 
+vim.opt.list = true
+vim.opt.listchars = {
+        tab = '\u{f101} ',
+        trail = '\u{f444}',
+        nbsp = '\u{f1050}',
+}

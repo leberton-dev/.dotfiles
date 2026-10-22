@@ -2,13 +2,17 @@ vim.lsp.config('basedpyright', {
 	root_markers = { { '.git' }, { 'pyrightconfig.json', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile' } }
 })
 
+vim.lsp.config('clangd', {
+	cmd = { 'clangd', '--completion-style=detailed', '--header-insertion=never'}
+})
+
 vim.lsp.enable({ 'clangd', 'lua_ls', 'basedpyright', 'ruff', 'rust_analyzer' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
-		vim.lsp.completion.enable(true, args.data.client_id, args.buf, {
-			autotrigger = true
-		})
+		-- vim.lsp.completion.enable(true, args.data.client_id, args.buf, {
+		-- 	autotrigger = true
+		-- })
 
 		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
 			buffer = args.buf,
