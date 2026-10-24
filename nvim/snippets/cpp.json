@@ -1,0 +1,22 @@
+{
+	"Orthodox canonical class (hpp)": {
+		"prefix": "classhpp",
+		"body": [
+			"#ifndef ${1:$TM_FILENAME_BASE}_HPP",
+			"#define $1_HPP",
+			"",
+			"class ${2:$TM_FILENAME_BASE} {",
+			"public:",
+			"\t$2();",
+			"\t$2(const $2 &other);",
+			"\t$2 &operator=(const $2 &other);",
+			"\t~$2();",
+			"",
+			"private:",
+			"\t$0",
+			"};",
+			"",
+			"#endif"
+		]
+	}
+}
