@@ -21,7 +21,7 @@ font pango:Iosevka 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex-autostart --autostart --environment i3
+exec --no-startup-id dex-autostart --autostart --environment i3 || dex --autostart --environment i3
 
 # Remap Caps Lock to Ctrl
 exec --no-startup-id setxkbmap -option ctrl:nocaps
@@ -74,6 +74,8 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
+# wrap inside the container (tabs) instead of jumping to the other output
+focus_wrapping force
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
