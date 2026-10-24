@@ -17,8 +17,13 @@ unset DOTFILES_DIR
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
 # Load Homebrew config script
 source $HOME/.brewconfig.zsh
 
 # mya: lock the terminal while a task is overdue
 eval "$(mya init zsh)"
+
+
+# For Ubuntu
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
