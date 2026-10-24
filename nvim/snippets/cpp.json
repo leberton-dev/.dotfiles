@@ -18,5 +18,26 @@
 			"",
 			"#endif"
 		]
+	},
+	"Orthodox canonical class (cpp)": {
+		"prefix": "classcpp",
+		"body": [
+			"#include \"${1:$TM_FILENAME_BASE}.hpp\"",
+			"",
+			"$1::$1 () {",
+			"}",
+			"",
+			"$1::$1 (const $1& other) {",
+			"}",
+			"",
+			"$1& $1::operator= (const $1& other) {",
+			"\tif (this != &other) {",
+			"\t}",
+			"\treturn *this;",
+			"}",
+			"",
+			"$1::~$1 () {",
+			"}"
+		]
 	}
 }
