@@ -14,7 +14,7 @@ source = "git/.gitmessage.txt"
 dest = "~/.gitmessage.txt"
 
 [modules.zsh]
-packages = ["zsh", "starship"]
+packages = ["zsh", "starship", "zsh-autosuggestions", "zsh-syntax-highlighting"]
 
 [[modules.zsh.links]]
 source = "shell/zsh/.zshrc"
@@ -63,6 +63,13 @@ packages = ["kitty"]
 source = "terminal/kitty/kitty.conf"
 dest = "~/.config/kitty/kitty.conf"
 
+[modules.picom]
+packages = ["picom"]
+
+[[modules.picom.links]]
+source = "picom/picom.conf"
+dest = "~/.config/picom/picom.conf"
+
 [profiles.fourtytwo]
 modules = ["zsh", "git", "nvim", "scripts", "tmux"]
 package_manager = "brew"
@@ -72,5 +79,5 @@ modules = ["zsh", "git", "i3", "nvim", "scripts", "tmux", "kitty"]
 package_manager = "dnf"
 
 [profiles.ubuntu]
-modules = ["zsh", "git", "nvim", "scripts", "tmux"]
+modules = ["zsh", "git", "i3", "nvim", "scripts", "tmux", "kitty", "picom"]
 package_manager = "apt"
