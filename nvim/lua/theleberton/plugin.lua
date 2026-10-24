@@ -16,6 +16,7 @@ vim.pack.add({
 
 	-- TreeSitter
 	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
 
 	-- Oil
 	{ src = 'https://github.com/stevearc/oil.nvim' },
@@ -44,6 +45,12 @@ vim.pack.add({
 	-- tabout (tabout from parentheses, quotes, and similar context)
 	{ src = 'https://github.com/abecodes/tabout.nvim' },
 
+	-- Sessions
+	{ src = 'https://github.com/folke/persistence.nvim' },
+
+	-- Tasks (make)
+	{ src = 'https://github.com/stevearc/overseer.nvim' },
+
 	-- UI
 	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
@@ -53,7 +60,7 @@ vim.pack.add({
 })
 
 vim.cmd 'packadd nvim.undotree'
-
+vim.cmd 'packadd! termdebug'
 vim.cmd 'colorscheme kanso-zen'
 
 require('oil').setup({
