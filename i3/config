@@ -73,6 +73,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+# Screenshot
+bindsym $mod+Shift+s exec --no-startup-id maim -s ~/Pictures/shot_$(date +%s).png
+bindsym $mod+Ctrl+s exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+
 # change focus
 # wrap inside the container (tabs) instead of jumping to the other output
 focus_wrapping force
