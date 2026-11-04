@@ -36,7 +36,7 @@ source = "i3/"
 dest = "~/.config/i3/"
 
 [modules.nvim]
-packages = ["neovim"]
+packages = ["neovim", "npm", "xclip"]
 
 [[modules.nvim.links]]
 source = "nvim/"
