@@ -3,7 +3,7 @@ vim.lsp.config('basedpyright', {
 })
 
 vim.lsp.config('clangd', {
-	cmd = { 'clangd', '--completion-style=detailed', '--header-insertion=never'}
+	cmd = { 'clangd', '--completion-style=detailed', '--header-insertion=never', '--query-driver=/opt/wonderful/toolchain/gcc-arm-none-eabi/bin/arm-none-eabi-*', }
 })
 
 vim.lsp.enable({ 'clangd', 'lua_ls', 'basedpyright', 'ruff', 'rust_analyzer' })
