@@ -27,3 +27,7 @@ eval "$(mya init zsh)"
 
 # For Ubuntu
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+# Wonderful ToolChain ( ds game )
+export PATH="$PATH:/opt/wonderful/bin"
+source /opt/wonderful/bin/wf-env
