@@ -75,7 +75,7 @@ modules = ["zsh", "git", "nvim", "scripts", "tmux"]
 package_manager = "brew"
 
 [profiles.asahi]
-modules = ["zsh", "git", "i3", "nvim", "scripts", "tmux", "kitty"]
+modules = ["zsh", "git", "i3", "nvim", "scripts", "tmux", "kitty", "picom"]
 package_manager = "dnf"
 
 [profiles.ubuntu]
