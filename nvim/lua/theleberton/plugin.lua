@@ -59,6 +59,10 @@ vim.pack.add({
 	{ src = 'https://github.com/sphamba/smear-cursor.nvim' },
 })
 
+require('kanso').setup({
+	transparent = true,
+})
+
 vim.cmd 'packadd nvim.undotree'
 vim.cmd 'packadd! termdebug'
 vim.cmd 'colorscheme kanso-zen'
