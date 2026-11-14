@@ -17,7 +17,11 @@ vim.keymap.set('n', '<leader>u', '<CMD>Undotree<CR>', { desc = "Toggle Undotree"
 -- end, { desc = 'Grep under cursor' })
 
 local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<C-f>', telescope.find_files, { desc = 'Telescope find files' })
+-- vim.keymap.set('n', '<C-f>', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<C-f>', function()
+	require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })
+end, { desc = 'Telescope frecency' })
+vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP code action' })
 vim.keymap.set('n', '<C-g>', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })

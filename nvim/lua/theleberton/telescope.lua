@@ -13,7 +13,15 @@ require('telescope').setup({
 			height = 0.80,
 		},
 	},
+	extensions = {
+		['ui-select'] = {
+			require('telescope.themes').get_dropdown({}),
+		},
+	},
 })
+
+require('telescope').load_extension('ui-select')
+require('telescope').load_extension('frecency')
 
 local function apply_highlights()
 	local c = palette.get()
