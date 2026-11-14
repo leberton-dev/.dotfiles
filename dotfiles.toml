@@ -29,7 +29,7 @@ source = "shell/starship/starship.toml"
 dest = "~/.config/starship/starship.toml"
 
 [modules.i3]
-packages = ["i3"]
+packages = ["i3", "feh"]
 
 [[modules.i3.links]]
 source = "i3/"
