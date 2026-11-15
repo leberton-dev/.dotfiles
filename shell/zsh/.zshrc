@@ -33,4 +33,4 @@ export PATH="$PATH:/opt/wonderful/bin"
 source /opt/wonderful/bin/wf-env
 
 # go
-export PATH="$PATH:~/go/bin"
+export PATH="$PATH:$HOME/go/bin"
