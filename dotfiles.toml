@@ -14,7 +14,15 @@ source = "git/.gitmessage.txt"
 dest = "~/.gitmessage.txt"
 
 [modules.zsh]
-packages = ["zsh", "starship", "zsh-autosuggestions", "zsh-syntax-highlighting"]
+packages = [
+	"zsh",
+	"starship",
+	"zsh-autosuggestions",
+	"zsh-syntax-highlighting",
+	"fzf",
+	"zoxide",
+	"bat"
+]
 
 [[modules.zsh.links]]
 source = "shell/zsh/.zshrc"
@@ -29,21 +37,46 @@ source = "shell/starship/starship.toml"
 dest = "~/.config/starship/starship.toml"
 
 [modules.i3]
-packages = ["i3", "feh"]
+packages = [
+	"i3",
+	"i3status",
+	"i3lock",
+	"xss-lock",
+	"dex",
+	"feh",
+	"maim",
+	"xclip",
+	"brightnessctl",
+	"pulseaudio-utils",
+	"network-manager-gnome",
+	"fonts-iosevka"
+]
 
 [[modules.i3.links]]
 source = "i3/"
 dest = "~/.config/i3/"
 
 [modules.nvim]
-packages = ["neovim", "npm", "xclip"]
+packages = [
+	"neovim",
+	"npm",
+	"xclip",
+	"curl",
+	"ripgrep",
+	"fd-find",
+	"build-essential",
+	"tree-sitter-cli",
+	"clangd",
+	"golang",
+	"gopls"
+]
 
 [[modules.nvim.links]]
 source = "nvim/"
 dest = "~/.config/nvim/"
 
 [modules.scripts]
-packages = []
+packages = ["fzf", "tmux"]
 
 [[modules.scripts.links]]
 source = "scripts/utils/tmux-sessionizer"
