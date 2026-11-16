@@ -20,3 +20,4 @@ elif [[ $OS = "linux" ]]; then
 fi
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+typeset -aU path
